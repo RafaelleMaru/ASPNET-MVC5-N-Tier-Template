@@ -1,0 +1,386 @@
+﻿
+@{
+    ViewBag.Title = "User List";
+}
+
+
+<!--banner-->
+<div class="banner">
+    <h2>
+        <a href="@Url.Action("Index","User")">User</a>
+    </h2>
+</div>
+<!--//banner-->
+
+<div class="grid-system">
+
+
+    <div class="horz-grid">
+        <div style="width: 90%; margin: 0 auto;" class="">
+
+            <button id="create-data" class="btn btn-default btn-sm">Create new user</button>
+
+            <hr />
+
+            <table id="datatable" class="display responsive nowrap dtr-inline collapsed table-hover" cellspacing="0" width="100%">
+
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        @*<th>Email</th>*@
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Active</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form id="modal-form" method="post">
+
+            @Html.AntiForgeryToken()
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userModalTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                    <input id="userId" name="userId" type="hidden" />
+
+                    <!-- Select -->
+                    <div class="form-group">
+                        <label class="control-label">User Type</label>
+                        <div class="selectContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                <select name="userTypeId" id="userTypeId" class="form-control selectpicker">
+                                    <option value="">-- Select --</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+
+                    <div class="form-group">
+                        <label class="control-label">Username</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="username" id="username" placeholder="username" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group" id="passwordGroupField">
+                        <label class="control-label">Password</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input name="password" id="password" placeholder="password" class="form-control" type="password">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="confirmPasswordGroupField">
+                        <label class="control-label">Confirm Password</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input name="confirmPassword" id="confirmPassword" placeholder="confirmPassword" class="form-control" type="password">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="control-label">E-Mail</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input name="email" id="email" placeholder="E-Mail Address" class="form-control" type="email">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">First Name</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group ui-corner-all">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="firstname" id="firstname" placeholder="First Name" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+
+                    <div class="form-group">
+                        <label class="control-label">Last Name</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="lastname" id="lastname" placeholder="Last Name" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="active" id="active" data-error="Before you wreck yourself">
+                                Active
+                            </label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+
+
+                </div> <!-- end of modal body -->
+
+
+
+                <div class="modal-footer">
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-default" disabled="disabled" id="modalFormSubmit">Save changes</button>
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div> <!--end of modal Add / Edit -->
+<!-- Modal View -->
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewModalTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+
+                <input id="userIdView" name="userIdView" type="hidden" />
+
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="control-label">User Type</label>
+                    <div class="selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="userTypeIdView" id="userTypeIdView" class="form-control selectpicker" disabled="disabled">
+                                <option value="">-- Select --</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="control-label">Username</label>
+                    <div class="inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="usernameView" id="usernameView" placeholder="username" class="form-control" type="text" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="control-label">E-Mail</label>
+                    <div class="inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input name="emailView" id="emailView" placeholder="E-Mail Address" class="form-control" type="email" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">First Name</label>
+                    <div class="inputGroupContainer">
+                        <div class="input-group ui-corner-all">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="firstnameView" id="firstnameView" placeholder="First Name" class="form-control" type="text" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="control-label">Last Name</label>
+                    <div class="inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="lastnameView" id="lastnameView" placeholder="Last Name" class="form-control" type="text" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label">Active</label>
+                    <div class="inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="activeView" id="activeView" placeholder="" class="form-control" type="text" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+                <div class="form-group">
+
+                    <button type="button" class="btn btn-default" id="edit-data">Edit</button>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div><!--end of modal View-->
+<!-- Modal promt -->
+<div class="modal fade" id="promptModal" tabindex="-1" role="dialog" aria-labelledby="promtModalTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="promtModalTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="modalFormDelete">
+                <div class="modal-body">
+
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" id="userIdDelete" name="userIdDelete" />
+                    Are you sure you want to delete record?
+
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-primary">Yes</button>
+
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div><!--end of modal promt-->
+
+@section Styles
+{
+    @* Load datatable css*@
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
+
+    <link href="https://cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/select/1.2.5/css/select.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+}
+
+
+@section Scripts{
+
+    @* Load Datatable js here *@
+    @*<script src="https://code.jquery.com/jquery-1.12.4.js"></script>*@
+
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.js"></script>
+
+
+
+    <script src="https://cdn.datatables.net/select/1.2.5/js/dataTables.select.min.js"></script>
+    @*<script src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>*@
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+
+    @* Jquery UI *@
+
+    <script src="~/Scripts/jquery.rafaelle.js"></script>
+
+
+    <script src="~/Scripts/NTIER.User.js"></script>
+    <script src="~/Scripts/NTIER.User.UI.js"></script>
+
+
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+
+
+        });
+    </script>
+}

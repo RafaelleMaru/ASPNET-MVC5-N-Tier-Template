@@ -1,0 +1,14 @@
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\bin\Debug\NTIER.BLL.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\bin\Debug\NTIER.BLL.pdb
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\bin\Debug\NTIER.Common.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\bin\Debug\NTIER.DAL.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\bin\Debug\Rafaelle.Framework.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\bin\Debug\Microsoft.ApplicationBlocks.Data.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\bin\Debug\NTIER.Common.pdb
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\bin\Debug\NTIER.DAL.pdb
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\bin\Debug\Rafaelle.Framework.pdb
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\obj\Debug\NTIER.BLL.csprojAssemblyReference.cache
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\obj\Debug\NTIER.BLL.csproj.CoreCompileInputs.cache
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\obj\Debug\NTIER.BLL.csproj.CopyComplete
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\obj\Debug\NTIER.BLL.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.BLL\obj\Debug\NTIER.BLL.pdb

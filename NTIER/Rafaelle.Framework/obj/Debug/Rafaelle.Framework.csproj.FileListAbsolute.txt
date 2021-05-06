@@ -1,0 +1,6 @@
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\Rafaelle.Framework\bin\Debug\Rafaelle.Framework.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\Rafaelle.Framework\bin\Debug\Rafaelle.Framework.pdb
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\Rafaelle.Framework\obj\Debug\Rafaelle.Framework.csprojAssemblyReference.cache
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\Rafaelle.Framework\obj\Debug\Rafaelle.Framework.csproj.CoreCompileInputs.cache
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\Rafaelle.Framework\obj\Debug\Rafaelle.Framework.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\Rafaelle.Framework\obj\Debug\Rafaelle.Framework.pdb

@@ -1,0 +1,210 @@
+﻿
+
+@{
+    ViewBag.Title = "User Type List";
+}
+
+
+<!--banner-->
+<div class="banner">
+    <h2>
+        <a href="@Url.Action("Index","User")">User</a>
+        <i class="fa fa-angle-right"></i>
+        <span>User Type</span>
+    </h2>
+</div>
+<!--//banner-->
+
+<div class="grid-system">
+
+
+    <div class="horz-grid">
+        <div style="width: 90%; margin: 0 auto;" class="">
+
+            <button id="create-data" class="btn btn-default btn-sm">Create new user type</button>
+
+            <hr />
+
+            <table id="datatable" class="display responsive nowrap dtr-inline collapsed table-hover" cellspacing="0" width="100%">
+
+                <thead>
+                    <tr>
+                        <th>User Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="userTypeModal" tabindex="-1" role="dialog" aria-labelledby="userTypeModalTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form id="userTypeModalForm" method="post">
+
+            @Html.AntiForgeryToken()
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userTypeModalTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                    <input id="userTypeId" name="userTypeId" type="hidden" />
+
+
+                    <!-- Text input-->
+
+                    <div class="form-group">
+                        <label class="control-label">Username</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-group"></i></span>
+                                <input name="userTypeName" id="userTypeName" placeholder="User Type Name" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- end of modal body -->
+
+
+
+                <div class="modal-footer">
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-default" disabled="disabled" id="modalFormSubmit">Save changes</button>
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div> <!--end of modal Add / Edit -->
+<!-- Modal View -->
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewModalTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+
+                <input id="userTypeIdView" name="userTypeIdView" type="hidden" />
+
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="control-label">Username</label>
+                    <div class="inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="userTypeNameView" id="userTypeNameView" placeholder="User Type Name" class="form-control" type="text" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <div class="form-group">
+
+                    <button type="button" class="btn btn-default" id="edit-data">Edit</button>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div><!--end of modal View-->
+<!-- Modal promt -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="deleteModalForm">
+                <div class="modal-body">
+
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" id="userTypeIdDelete" name="userTypeIdDelete" />
+                    Are you sure you want to delete record?
+
+                </div>
+
+                <div class="modal-footer">
+                    <div class="form-group">
+
+                        <button type="button" class="btn btn-primary" id="deleteModalFormYesButton">Yes</button>
+
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div><!--end of modal promt-->
+
+@section Styles
+{
+    @* Load datatable css*@
+    @Styles.Render("~/Content/cssDatatables");
+
+}
+
+
+@section Scripts{
+
+    @* Load Datatable js here *@
+    @Scripts.Render("~/bundles/jsDatatables");
+
+    <script src="~/Scripts/jquery.rafaelle.js"></script>
+    <script src="~/Scripts/NTIER.UserType.UI.js"></script>
+    <script src="~/Scripts/NTIER.UserType.js"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+
+
+        });
+    </script>
+}

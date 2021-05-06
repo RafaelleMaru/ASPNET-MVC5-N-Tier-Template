@@ -1,0 +1,11 @@
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.DAL\bin\Release\NTIER.DAL.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.DAL\bin\Release\NTIER.DAL.pdb
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.DAL\bin\Release\Microsoft.ApplicationBlocks.Data.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.DAL\bin\Release\NTIER.Common.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.DAL\bin\Release\Rafaelle.Framework.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.DAL\bin\Release\NTIER.Common.pdb
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.DAL\bin\Release\Rafaelle.Framework.pdb
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.DAL\obj\Release\NTIER.DAL.csprojResolveAssemblyReference.cache
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.DAL\obj\Release\NTIER.DAL.csproj.CoreCompileInputs.cache
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.DAL\obj\Release\NTIER.DAL.dll
+D:\Collabor8 Digital Media inc\Projects\ASP.NET MVC N-Tier Template\NTIER\NTIER.DAL\obj\Release\NTIER.DAL.pdb

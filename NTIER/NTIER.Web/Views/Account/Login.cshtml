@@ -1,0 +1,94 @@
+﻿@model NTIER.Web.Models.LoginModel
+@{
+    ViewBag.Title = "SIGN IN";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm($"Login", $"Account", FormMethod.Post, new { @class = "form-signin" }))
+{
+
+    <h2>SIGN IN</h2>
+    <div class="col-md-6">
+
+
+        <div class="input-group">
+            <label for="Username" class="sr-only">Password</label>
+        </div>
+        <div class="input-group">
+            <div class="input-group-addon">
+                <i class="fa fa-envelope"></i>
+            </div>
+            @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = "Username", required = "required", autofocus = "" })
+
+        </div>
+
+
+        <div class="input-group">
+            <label for="Password" class="sr-only">Password</label>
+        </div>
+        <div class="input-group">
+            <div class="input-group-addon">
+                <i class="fa fa-lock"></i>
+            </div>
+            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Password", required = "required", type = "Password" })
+        </div>
+
+        <div class="input-group">
+            <label class="checkbox1">
+                <input type="checkbox" name="RememberMe" id="RememberMe">
+               
+
+                <i> </i>Remember Me
+            </label>
+            <p>
+                Forgot your password? <br /><a href="#"> Click here.</a>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="col-md-6 signin-do">
+        <div class="input-group"></div>
+
+        <button class="btn btn-md btn-block btn-primary" type="submit">LOGIN</button>
+        <p>&nbsp;</p>
+        <p>
+            Don't have an account yet? <br/> <a href="signup.html">Sign up here</a>
+        </p>
+
+    </div>
+    
+    
+    if(!ViewData.ModelState.IsValid)
+     {
+         <div class="col-md-6 grid_5">
+             <div class="but_list">
+                 <div class="alert alert-danger" role="alert">
+                     <strong>Oh snap!</strong> @Html.ValidationMessage("")
+                 </div>
+             </div>
+         </div>
+     }
+    
+}
+
+@section Scripts{
+
+    <script>
+
+
+        $("input[type=checkbox]").change(function () {
+            if ($(this).prop("checked")) {
+                $(this).val(true);
+            } else {
+                $(this).val(false);
+            }
+        });
+
+
+    </script>
+
+
+}

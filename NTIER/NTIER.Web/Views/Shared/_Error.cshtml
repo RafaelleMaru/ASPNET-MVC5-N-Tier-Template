@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title | @NTIER.Common.Constants.ProjectName</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="fullpage">
+
+<div class="row">
+    <div class="col-md-12">
+        <a class="" href="@Url.Action("Index","Home")">
+            <img class="error-page-logo img-responsive" src="~/Content/img/company-logo.png" />
+        </a>
+    </div>
+    <div class="col-md-12 ">
+
+        @RenderBody()
+        
+    </div>
+
+</div>
+
+
+</body>
+</html>

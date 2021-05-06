@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <title>@ViewBag.Title - NTier</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script type="text/javascript">
+
+    </script>
+
+    @RenderSection("Styles", required: false)
+
+</head>
+<body>
+<base href='@Url.Content("~/")'>
+<div class="signin">
+
+    <h1 class="h1_huge">PORTAL<br /><small>COLLABOR8 DIGITAL</small></h1>
+
+
+
+    <div class="row signin-bottom">
+
+
+        @RenderBody()
+
+    </div>
+
+
+
+    <div class="copy-right">
+        <p> &copy; 2018 Collabor8 Digital HRIS. All Rights Reserved  </p>
+    </div>
+
+</div>
+    @Scripts.Render("~/bundles/themejs")
+
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

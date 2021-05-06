@@ -1,0 +1,191 @@
+﻿@model IList<NTIER.Common.Entity.ModuleEntity>
+
+@using NTIER.BLL
+@using NTIER.Common.Entity
+
+
+@{
+    ViewBag.Title = "Permission";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    string id = @Request.QueryString["id"];
+
+
+}
+
+<!--banner-->
+<div class="banner">
+    <h2>
+        <a href="@Url.Action("Index","User")">User</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="@Url.Action("Index","UserType")">User Type</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Permission</span>
+    </h2>
+</div>
+<!--//banner-->
+
+<div class="grid-system">
+
+
+    <div class="horz-grid">
+        <div style="width: 90%; margin: 0 auto;" class="">
+
+            <input id="userTypeId" type="hidden" value="@id">
+            User Type : <label id="userTypeNameLabel" name="userTypeNameLabel">
+
+    @{
+        if (id == null)
+        {
+
+        }
+        else
+        {
+            UserTypeEntity userTypeEntity = UserTypeBLL.GetById(Convert.ToByte(id));
+
+            @userTypeEntity.UserTypeName}
+
+
+    }
+
+
+
+</label>
+            <hr />
+            <form id="permissionForm" method="post">
+                @*@Html.AntiForgeryToken()*@
+                <input type="button" class="btn btn-default" value="Save Changes" id="permissionFormSaveButton"/>
+
+                <table id="permissionTable" class="table" cellspacing="0" width="100%">
+
+                    <thead>
+                        <tr>
+                            <th>Module</th>
+                            <th>Add</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>View</th>
+                            <th>ListView</th>
+                            <th>Approve</th>
+                            <th>Download</th>
+                            <th>Upload</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+
+                        @{
+
+                            if (Model != null)
+                            {
+
+                                foreach (ModuleEntity entity in Model)
+                                {
+
+                        <tr rowid="@entity.ModuleId">
+                            <td itemId="@entity.ModuleId"> @entity.ModuleName </td>
+                            <td>
+                                <div class="input-group">
+                                    <label class="checkbox1">
+                                        <input type="checkbox" name="Add_@entity.ModuleId" id="Add_@entity.ModuleId">
+                                        <i> </i>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <label class="checkbox1">
+                                        <input type="checkbox" name="Edit_@entity.ModuleId" id="Edit_@entity.ModuleId">
+                                        <i> </i>
+                                    </label>
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <label class="checkbox1">
+                                        <input type="checkbox" name="Delete_@entity.ModuleId" id="Delete_@entity.ModuleId">
+                                        <i> </i>
+                                    </label>
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <label class="checkbox1">
+                                        <input type="checkbox" name="View_@entity.ModuleId" id="View_@entity.ModuleId">
+                                        <i> </i>
+                                    </label>
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <label class="checkbox1">
+                                        <input type="checkbox" name="ListView_@entity.ModuleId" id="ListView_@entity.ModuleId">
+                                        <i> </i>
+                                    </label>
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <label class="checkbox1">
+                                        <input type="checkbox" name="Approve_@entity.ModuleId" id="Approve_@entity.ModuleId">
+                                        <i> </i>
+                                    </label>
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <label class="checkbox1">
+                                        <input type="checkbox" name="Download_@entity.ModuleId" id="Download_@entity.ModuleId">
+                                        <i> </i>
+                                    </label>
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <label class="checkbox1">
+                                        <input type="checkbox" name="RememberMe" id="Upload_@entity.ModuleId">
+                                        <i> </i>
+                                    </label>
+                                </div>
+
+                            </td>
+                        </tr>
+
+                                }
+
+                            }
+
+
+                        }
+
+
+
+
+
+
+                    </tbody>
+
+                </table>
+
+
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts
+    {
+    <script src="~/Scripts/jquery.rafaelle.js"></script>
+    <script src="~/Scripts/NTIER.UserTypeModule.js"></script>
+    <script src="~/Scripts/NTIER.UserTypeModule.UI.js"></script>
+}
